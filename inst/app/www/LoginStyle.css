@@ -1,0 +1,33 @@
+div.login {
+  text-align: left;
+  position:absolute;
+  top: 100%;
+  left: 50%;
+  margin-top: 0.1px;
+  margin-left: -150px;
+}
+
+div#pass {
+  text-align: left;
+  font-weight:bold;
+  padding-left:2px;
+}
+
+input#Password {
+  -webkit-text-security: disc;
+}
+
+body {
+  margin:0cm;
+  font-size: 12px;
+}
+
+.shiny-output-error {
+  visibility: hidden;
+}
+
+#passwd {
+  display: block;
+  width: 100%;
+  height: 34px;
+}

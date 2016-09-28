@@ -1,0 +1,37 @@
+---
+title: "eData"
+author: "Karim Mezhoud"
+date: "September 28, 2016"
+output: html_document
+---
+## Authentification system
+User authentification is used to allow some user for changing date set.
+In web application we can use loggin access with different session group as admin and user sessions.
+The open source shiny server does not offer freely the option to secure access to shiny web application.
+radiant.dose implements some methods to secure access to edit database. Three way are implemented and can be used in different cases.
+
+### Session authentification
+ 
+ ```radiant.dose``` can be run in local machine and can access to distante database.
+ 
+### IP address authentification
+is usefull in network with fixed IP address (Each machine has always the same IP). 
+
+### Encrypted password
+Use login and password
+
+## Edit Data Set
+
+### Change value
+Select row, change value in sidebar menu and submit
+
+### Delete value
+Select row, delete value in sidebar menu and submit
+
+### Delete row
+Select row, reset values in sidebar menu and submit
+
+### Add new row
+Select all variables, fill texte box with appropriate value (respect numeric, integer, factor, Date types) and submit
+or
+faster example: Select all variables, select row, deselect row and submit
