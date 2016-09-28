@@ -8,7 +8,7 @@
 
 ### IP authentification
 Only selected IP are allowed to access to Edit panel
-
+<img src="./demoIP.gif">
 ### Session Authentification
 Login page is available only for authentified R session into allowed IP
 
