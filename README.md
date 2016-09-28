@@ -1,6 +1,6 @@
-# Dosimetrix: Medical and Dosimetry data manager
+# radiant.dose: [radiant](https://github.com/radiant-rstats) extension for Medical and Dosimetry data manager
 
-[![Build Status](https://travis-ci.org/kmezhoud/Dosimetrix.png?branch=master)](https://travis-ci.org/kmezhoud/Dosimetrix)
+[![Build Status](https://travis-ci.org/kmezhoud/radiant.dose.png?branch=master)](https://travis-ci.org/kmezhoud/radiant.dose)
 
 
 
