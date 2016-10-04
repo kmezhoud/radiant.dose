@@ -59,7 +59,8 @@ output$ui_eData <- renderUI({
     uiOutput("ui_evars")
 ),
 help_and_report(modal_title = "Edit Data", fun_name = "eData",
-                help_file = inclRmd(file.path(getOption("radiant.path.dose"),"app/tools/help/eData.Rmd")))
+                help_file = inclRmd(file.path(
+                 getOption("radiant.path.dose"),"app/tools/help/eData.Rmd")))
 
 #help_modal('EditData','editData_Help',inclMD(file.path(getOption("radiant.path.dose"),"app/tools/help/eData.md")))
   )
