@@ -8,7 +8,7 @@ isSession <- reactive({
 
 isIP <- reactive({
   ## all info of system
-  # system("ifconfig", intern=TRUE)
+  # system('ifconfig eth0 | grep -oP "inet addr:\\K\\S+"') %in% ipList
   system('ipconfig getifaddr en0', intern=TRUE)  %in% ipList
 })
 
@@ -24,7 +24,7 @@ output$ui_Edit <- renderUI({
   )
 })
 
-## output is called from the main Dosimetrix ui.R
+## output is called from the main radiant.dose ui.R
 output$Edit_tabs <- renderUI({
 
   tabsetPanel( id = "tabs_Edit",
@@ -36,7 +36,6 @@ output$Edit_tabs <- renderUI({
 })
 
 
-## output is called from the main Dosimetrix ui.R
 output$Edit <- renderUI({
   ## USER SESSION AUTHENTIFICATION
 
@@ -45,8 +44,8 @@ output$Edit <- renderUI({
 
   ##  IP AUTHENTIFICATION
 
-  if(!isIP()) return(h2(paste0("Your IP", system('ipconfig getifaddr en0', intern=TRUE), "is not list as admin.
-                        Please contact maintainer for access.", sep=":_"), style="color:red"))
+  #if(!isIP()) return(h2(paste0("Your IP", system('ipconfig getifaddr en0', intern=TRUE), "is not list as admin.
+#                        Please contact maintainer for access.", sep=":_"), style="color:red"))
 
   sidebarLayout(
 
@@ -64,9 +63,17 @@ output$Edit <- renderUI({
     mainPanel(
       tagList(
         tags$head(
-          tags$link(rel="stylesheet", type="text/css",href="LoginStyle.css"),
-          tags$script(type="text/javascript", src = "md5.js"),
-          tags$script(type="text/javascript", src = "passwdInputBinding.js")
+          #tags$link(rel="stylesheet", type="text/css", href=paste0(path.package("radiant.dose"),"/app/www/LoginStyle.css")),
+          #tags$script(type="text/javascript", src = paste0(path.package("radiant.dose"),"/app/www/md5.js")),
+          #tags$script(type="text/javascript", src = paste0(path.package("radiant.dose"),"/app/www/passwdInputBinding.JS"))
+          print(getwd()),
+          print(getOption("radiant.path.dose")),
+           tags$link(rel="stylesheet", type="text/css", href="LoginStyle.css"),
+          # tags$script(type="text/javascript", src = "md5.js"),
+          # tags$script(type="text/javascript", src = "passwdInputBinding.JS")
+          #tags$script(src= "LoginStyle.css"),
+          tags$script(src = "md5.js"),
+          tags$script(src= "passwdInputBinding.JS")
         ),
         ## Login module;
         div(class = "login",
@@ -79,7 +86,6 @@ output$Edit <- renderUI({
             id= "div_Edit_tabs",
             uiOutput("Edit_tabs")
           )
-
         )
       )
     )
