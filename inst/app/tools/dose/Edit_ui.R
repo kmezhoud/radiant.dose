@@ -63,17 +63,12 @@ output$Edit <- renderUI({
     mainPanel(
       tagList(
         tags$head(
-          #tags$link(rel="stylesheet", type="text/css", href=paste0(path.package("radiant.dose"),"/app/www/LoginStyle.css")),
-          #tags$script(type="text/javascript", src = paste0(path.package("radiant.dose"),"/app/www/md5.js")),
-          #tags$script(type="text/javascript", src = paste0(path.package("radiant.dose"),"/app/www/passwdInputBinding.JS"))
-          print(getwd()),
-          print(getOption("radiant.path.dose")),
            tags$link(rel="stylesheet", type="text/css", href="LoginStyle.css"),
-          # tags$script(type="text/javascript", src = "md5.js"),
-          # tags$script(type="text/javascript", src = "passwdInputBinding.JS")
-          #tags$script(src= "LoginStyle.css"),
-          tags$script(src = "md5.js"),
-          tags$script(src= "passwdInputBinding.JS")
+           tags$script(type="text/javascript", src = "md5.js"),
+           tags$script(type="text/javascript", src = "passwdInputBinding.JS"),
+           tags$script(src= "LoginStyle.css")
+           #tags$script(src = "md5.js"),
+           #tags$script(src= "passwdInputBinding.JS")
         ),
         ## Login module;
         div(class = "login",
