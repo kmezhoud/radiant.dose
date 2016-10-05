@@ -17,7 +17,8 @@ Imports:
     DT,
     digest,
     shinyjs,
-    shinyAce
+    shinyAce,
+    shinytheme
 Suggests:
     testthat (>= 1.0.0),
     covr (>= 1.2.0)
