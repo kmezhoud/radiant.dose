@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/kmezhoud/radiant.dose.png?branch=master)](https://travis-ci.org/kmezhoud/radiant.dose)
 
 
-radiant.dose is a browser-based interface for Dosimetry data management, analysis and visualization. The app is developped by R, and based on the Shiny package. Example of radiant.dose server is hosted at http://46.101.227.144:3838/radiant.dose/inst/app
+radiant.dose is a browser-based interface for Dosimetry data management, analysis and visualization. The app is developped by R, and based on the Shiny package. Example of radiant.dose server is hosted at [here](http://46.101.227.144:3838/radiant.dose/inst/app)
 
 Interactivities
 
