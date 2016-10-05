@@ -8,7 +8,7 @@ isSession <- reactive({
 
 isIP <- reactive({
   ## all info of system
-  # system('ifconfig eth0 | grep -oP "inet addr:\\K\\S+"') %in% ipList
+  # system('ifconfig eth0 | grep -oP "inet addr:\\K\\S+"', intern =TRUE) %in% ipList
   system('ipconfig getifaddr en0', intern=TRUE)  %in% ipList
 })
 

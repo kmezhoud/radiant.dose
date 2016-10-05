@@ -8,23 +8,9 @@ ifelse (grepl("radiant.dose", getwd()) && file.exists("../../inst") , "..",
         system.file(package = "radiant.dose")) %>%
   options(radiant.path.dose = .)
 
-## set work directory and path for server
-if(grepl("radiant.dose", getwd()) && file.exists("inst")){
-  setwd(paste0(getwd(),"/inst/app"))
-  #system.file(package = "radiant.dose") %>%
-  options("radiant.path.dose" = "..")
-}
-# ifelse (grepl("radiant.dose", getwd()) && file.exists("inst") ,
-#             setwd(paste0(getwd(),"/inst/app")),
-#           system.file(package = "radiant.dose")) %>%
-#     options(radiant.path.dose = .)
-
-## setting path for figures in help files
-#addResourcePath("figures_design", "tools/help/figures/")
 
 ## loading urls and ui
-#source("init.R", encoding = getOption("radiant.encoding"), local = TRUE)
-#options(radiant.url.patterns = make_url_patterns())
+source("init.R", encoding = getOption("radiant.encoding"), local = TRUE)
 
 # word to login for this session
 #Edit_pass <- "foo"
@@ -40,4 +26,4 @@ sessionList <- c("Mezhoud", "Sassi")
 
 ## IP authentification
 ipList <- c("192.168.1.66", "192.168.13.111","192.168.1.73",
-           "192.168.1.2")
+            "192.168.1.2")

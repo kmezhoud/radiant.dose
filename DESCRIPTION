@@ -16,14 +16,13 @@ Imports:
     methods,
     DT,
     digest,
-    shinythemes,
     shinyjs,
     shinyAce
 Suggests:
     testthat (>= 1.0.0),
     covr (>= 1.2.0)
-URL: https://github.com/kmezhoud/Dosimetrix, https://Dosimetrix.github.io/docs
-BugReports: https://github.com/kmezhoud/Dosimetrix/issues
+URL: https://github.com/kmezhoud/radiant.dose, https://radiant.dose.github.io/docs
+BugReports: https://github.com/kmezhoud/radiant.dose/issues
 License: AGPL-3 | file LICENSE
 LazyData: true
 RoxygenNote: 5.0.1
