@@ -24,7 +24,7 @@ Login page is available only for authentified R session.
 
 ### encrypted keyword system  (MD5 algorithm)
 Edit database needs keyword to access to Edit tabs
-<img src="./login.gif">
+<img src="./login.png">
 
 ## Edit Data Set directly from render table
 <img src="./eData.gif">
