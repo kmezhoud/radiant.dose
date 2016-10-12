@@ -64,11 +64,11 @@ output$Edit <- renderUI({
       tagList(
         tags$head(
            tags$link(rel="stylesheet", type="text/css", href="LoginStyle.css"),
-           tags$script(type="text/javascript", src = "md5.js"),
-           tags$script(type="text/javascript", src = "passwdInputBinding.JS"),
-           tags$script(src= "LoginStyle.css")
-           #tags$script(src = "md5.js"),
-           #tags$script(src= "passwdInputBinding.JS")
+           #tags$script(type="text/javascript", src = "md5.js"),
+           #tags$script(type="text/javascript", src = "passwdInputBinding.JS"),
+           #tags$script(src= "LoginStyle.css")
+           tags$script(src = "md5.js"),
+           tags$script(src= "passwdInputBinding.JS")
         ),
         ## Login module;
         div(class = "login",

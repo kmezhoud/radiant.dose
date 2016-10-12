@@ -17,16 +17,6 @@
 #'@export
 displayTable <-
   function(df, session= session){
-    # if(!is.null(r_data$responses) && nrow(r_data$responses) > 0){
-    #   #if (exists("responses") && nrow(responses) > 0) {
-    #   #if(identical(df, ReadData())){
-    #   if(!is.null(rownames(df))){
-    #     # avoid dplyr dependency
-    #     #df <- as.data.frame(df %>% add_rownames("Id"))
-    #     df <- cbind(Id = rownames(df), df)
-    #     rownames(df) <- NULL
-    #   }
-    # }
 
     action = DT::dataTableAjax(session, df, rownames = FALSE)
     withProgress(message = 'Generating view table', value = 1,

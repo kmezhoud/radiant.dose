@@ -5,7 +5,7 @@
 #' @return  web page of bioCancer Shiny App
 #' @examples
 #' \dontrun{
-#' library(Dosimetrix)
+#' library(radiant.dose)
 #' radiant.dose(navPanel.Edit=FALSE)
 #'}
 #' @details See \url{https://Dosimetrix.github.io/docs} for documentation and tutorials

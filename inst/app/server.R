@@ -24,7 +24,7 @@ shinyServer(function(input, output, session) {
     radiant.data::copy_all(radiant.dose)
   }
 
-  ## source Dosimetrix tools for radiant.dose app
+  ## source tools from radiant.dose app
   for (file in list.files(c("tools/dose"), pattern="\\.(r|R)$", full.names = TRUE))
     source(file, encoding = getOption("radiant.encoding"), local = TRUE)
 

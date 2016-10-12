@@ -4,9 +4,9 @@ source(file.path(getOption("radiant.path.data"), "app/global.R"),
        encoding = getOption("radiant.encoding", default = "UTF-8"), local = TRUE)
 
 ## option to change theme
-options(radiant.nav_ui =
-          list(windowTitle = "Radiant Doser" ,theme= shinythemes::shinytheme("cerulean") , id = "nav_radiant",
-               inverse = TRUE, collapsible = TRUE, tabPanel("Data", withMathJax(), uiOutput("ui_data"))))
+#options(radiant.nav_ui =
+ #         list(windowTitle = "Dosimetry" ,theme= shinythemes::shinytheme("cerulean") , id = "nav_radiant",
+  #             inverse = TRUE, collapsible = TRUE, tabPanel("Data", withMathJax(), uiOutput("ui_data"))))
 
 ## set path for package
 ifelse (grepl("radiant.dose", getwd()) && file.exists("../../inst") , "..",
