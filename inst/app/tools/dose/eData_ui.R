@@ -69,10 +69,14 @@ help_and_report(modal_title = "Edit Data", fun_name = "eData",
 
 output$dataEdit <- DT::renderDataTable({
 
-
-  #dat <- r_data[[input$dataset]][input$edata_vars]
-  dat <- select_(.getdata(), .dots = input$edata_vars)
-
+  ## colnames is not updated when data is changed
+  ## the displayTable() uses previous colnames
+  if (inherits(try( dat <- r_data[[input$dataset]][input$edata_vars], silent=TRUE),"try-error")){
+    dat <- r_data[[input$dataset]]
+  }else{
+  dat <- r_data[[input$dataset]][input$edata_vars]
+  #dat <- select_(.getdata(), .dots = input$edata_vars)
+}
   ## update state when view_vars changes
   # if (!identical(r_state$data_vars, input$data_vars)) {
   #   r_state$data_vars <<- input$data_vars
