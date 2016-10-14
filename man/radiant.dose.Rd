@@ -4,7 +4,7 @@
 \name{radiant.dose}
 \alias{radiant.dose}
 \alias{radiant.dose-package}
-\title{Dosimetrix}
+\title{radiant.dose}
 \usage{
 radiant.dose(navPanel.Edit=FALSE)
 }
@@ -15,7 +15,7 @@ radiant.dose(navPanel.Edit=FALSE)
 web page of bioCancer Shiny App
 }
 \description{
-Dosimetrix
+radiant.dose
 
 Launch radiant.dose in the default browser
 }

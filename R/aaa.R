@@ -4,7 +4,7 @@ globalVariables(c("r_data","matches"))
 # to avoid 'no visible binding for global variable' NOTE
  # globalVariables(c(".","rnd_number"))
 
-#' Dosimetrix
+#' radiant.dose
 #'
 #' @name radiant.dose
 #' @docType package
@@ -16,3 +16,12 @@ globalVariables(c("r_data","matches"))
 #' @importFrom utils write.csv
 NULL
 
+#' diams prices
+#'
+#' @details A sample of 3,000 from the diamonds dataset bundeled with ggplot2. Description provided in attr(diamonds,"description")
+#' @docType data
+#' @keywords datasets
+#' @name diamonds
+#' @usage data(diamonds)
+#' @format A data frame with 3000 rows and 10 variables
+NULL

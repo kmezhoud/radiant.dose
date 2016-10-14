@@ -12,6 +12,11 @@ shinyServer(function(input, output, session) {
     source(file, encoding = getOption("radiant.encoding"), local = TRUE)
 
 
+  ## packages to use for example data
+  #options(radiant.example.data = "radiant.data") # works
+  options(radiant.example.data = "radiant.dose")
+  #options("radiant.example.data")
+
   ## 'sourcing' radiant's package functions in the server.R environment
 
   if (!"package:radiant.dose" %in% search() &&
