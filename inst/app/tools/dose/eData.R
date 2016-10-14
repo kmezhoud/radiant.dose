@@ -122,6 +122,19 @@ observeEvent(input$submit_evars, {
                         paste0(input$edata_vars[i],i),
                         value = ""
         )
+      }else if(is.character(r_data[[input$dataset]][,input$edata_vars[i]]) &&
+               ## check if inputText is valide
+               length(grep("[0-9]", input[[paste0(input$edata_vars[i],i)]])) == 0
+      ){
+        r_data[[input$dataset]][input$dataEdit_rows_selected,input$edata_vars[i]] <-
+          as.character(input[[paste0(input$edata_vars[i],i)]])
+
+        InitData_eVars(session)
+
+        updateTextInput(session,
+                        paste0(input$edata_vars[i],i),
+                        value = ""
+        )
       }else if(is.integer(r_data[[input$dataset]][,input$edata_vars[i]]) &&
                input[[paste0(input$edata_vars[i],i)]] != "" &&
                length(grep("[^0-9]", input[[paste0(input$edata_vars[i],i)]])) == 0
