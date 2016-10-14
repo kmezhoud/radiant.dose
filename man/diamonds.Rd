@@ -3,13 +3,13 @@
 \docType{data}
 \name{diamonds}
 \alias{diamonds}
-\title{diams prices}
+\title{diamonds prices}
 \format{A data frame with 3000 rows and 10 variables}
 \usage{
 data(diamonds)
 }
 \description{
-diams prices
+diamonds prices
 }
 \details{
 A sample of 3,000 from the diamonds dataset bundeled with ggplot2. Description provided in attr(diamonds,"description")

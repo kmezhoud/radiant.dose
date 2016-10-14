@@ -16,7 +16,7 @@ globalVariables(c("r_data","matches"))
 #' @importFrom utils write.csv
 NULL
 
-#' diams prices
+#' diamonds prices
 #'
 #' @details A sample of 3,000 from the diamonds dataset bundeled with ggplot2. Description provided in attr(diamonds,"description")
 #' @docType data
@@ -24,4 +24,14 @@ NULL
 #' @name diamonds
 #' @usage data(diamonds)
 #' @format A data frame with 3000 rows and 10 variables
+NULL
+
+#' dosimetry
+#'
+#' @details A sample of dosimeter
+#' @docType data
+#' @keywords datasets
+#' @name dosimetry
+#' @usage data(dosimetry)
+#' @format A data frame
 NULL
