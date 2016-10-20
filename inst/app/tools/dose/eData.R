@@ -72,7 +72,7 @@ observeEvent(input$submit_evars, {
         tmp <- as.numeric(input[[paste0(input$edata_vars[i],i)]])
       }else if (is.Date(r_data[[input$dataset]][,input$edata_vars[i]])){
         ## validate date format
-        if(input[[paste0(input$edata_vars[i],i)]] != "" ||
+        if(input[[paste0(input$edata_vars[i],i)]] == "" ||
            grepl("[0-9]{4}\\-[0-9]{2}\\-[0-9]{2}", input[[paste0(input$edata_vars[i],i)]]) == FALSE
         ){
           tmp <- Sys.Date()
