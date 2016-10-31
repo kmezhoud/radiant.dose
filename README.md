@@ -28,3 +28,8 @@ Edit database needs keyword to access to Edit tabs
 
 ## Edit Data Set directly from render table
 <img src="./eData.gif">
+
+
+## Issue: update selected vars when setting the image size (state_multiple())
+
+<img src="./stateMultipleDemo.gif">
