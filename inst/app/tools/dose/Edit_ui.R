@@ -18,7 +18,7 @@ output$ui_Edit <- renderUI({
   tagList(
     #uiOutput("ui_datasets_edit"),
     conditionalPanel("input.tabs_Edit == 'Data'", uiOutput("ui_eData"))
-    #conditionalPanel("input.tabs_Edit =='Medical'", uiOutput("ui_medical")),
+    #conditionalPanel("input.tabs_Edit =='Dosimetry'", uiOutput("ui_dosimetry"))
     #conditionalPanel("input.tabs_Edit == 'Organigram'", uiOutput("ui_organigram"))
 
   )
@@ -29,7 +29,6 @@ output$Edit_tabs <- renderUI({
 
   tabsetPanel( id = "tabs_Edit",
                tabPanel("Data", DT::dataTableOutput("dataEdit"))
-               # tabPanel("Organigram", uiOutput("organigram")),
                # tabPanel("Perso",  uiOutput("ui_perso")),
                # tabPanel("Medical", DT::dataTableOutput("responses"))
   )

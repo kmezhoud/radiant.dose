@@ -1,3 +1,6 @@
+## rsync -avz -e "ssh" radiant.dose kmezhoud@46.101.227.144:/srv/shiny-server/
+##
+## ssh kmezhoud@46.101.227.144
 shinyServer(function(input, output, session) {
   ## source shared functions
   source(file.path(getOption("radiant.path.data"),"app/init.R"),

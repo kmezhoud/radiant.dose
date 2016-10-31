@@ -77,7 +77,9 @@ observeEvent(input$submit_evars, {
         ){
           tmp <- Sys.Date()
         }else
-          tmp <- format(as.POSIXlt.date(input[[paste0(input$edata_vars[i],i)]]), "%Y-%m-%d")
+          tmp <- format(as.POSIXlt.date(input[[paste0(input$edata_vars[i],i)]]), "%Y-%m-%d", tz = "")
+          #tmp <- as.Date(input[[paste0(input$edata_vars[i],i)]], format = "%Y-%m-%d")
+          #tmp <-  lubridate::ymd(input[[paste0(input$edata_vars[i],i)]])
 
       }else if(is.character(r_data[[input$dataset]][,input$edata_vars[i]])){
         tmp <- as.character(input[[paste0(input$edata_vars[i],i)]])
@@ -168,7 +170,10 @@ observeEvent(input$submit_evars, {
                grepl("[0-9]{4}\\-[0-9]{2}\\-[0-9]{2}", input[[paste0(input$edata_vars[i],i)]]) == TRUE
       ){
         r_data[[input$dataset]][input$dataEdit_rows_selected,input$edata_vars[i]] <- #Sys.Date()
-          format(as.POSIXlt.date(input[[paste0(input$edata_vars[i],i)]]), "%Y-%m-%d")
+
+          format(as.POSIXlt.date(input[[paste0(input$edata_vars[i],i)]]), "%Y-%m-%d", tz = "")
+         #as.Date(input[[paste0(input$edata_vars[i],i)]], format = "%Y-%m-%d")
+         #lubridate::ymd(input[[paste0(input$edata_vars[i],i)]])
 
         InitData_eVars(session)
 
