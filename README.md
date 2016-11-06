@@ -33,3 +33,7 @@ Edit database needs keyword to access to Edit tabs
 ## Issue: update selected vars when setting the image size (state_multiple())
 
 <img src="./stateMultipleDemo.gif">
+
+## Demo dosimetry plot
+
+<img src="./dosimetryBykm.gif">
