@@ -28,7 +28,9 @@ output$ui_Edit <- renderUI({
 output$Edit_tabs <- renderUI({
 
   tabsetPanel( id = "tabs_Edit",
-               tabPanel("Data", DT::dataTableOutput("dataEdit"))
+               tabPanel("Data",
+                  uiOutput("editable")
+                        )
                # tabPanel("Perso",  uiOutput("ui_perso")),
                # tabPanel("Medical", DT::dataTableOutput("responses"))
   )

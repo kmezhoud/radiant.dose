@@ -34,7 +34,8 @@ output$Upper_threshold <- DT::renderDataTable({
     )
   }
   DT::datatable(
-  caption = paste0('Cumulative Threshold (mSv) = ', r_data$thresh) ,
+
+  caption = HTML(paste0('Cumulative Threshold (mSv/ range date) = ', tags$span(style="color:red",  r_data$thresh))) ,
   Upper_threshold(dat= r_data[[input$dataset]],rangeDate= input$periodeId, Y= input$data_yvar),
   filter = 'top'
 
@@ -150,16 +151,34 @@ plot_height_dosimetry <- reactive({
   }
 })
 
-.dosimetry <- function(){
-  options(scipen = 0, digits = 2)
-  r_data$ggscatterplot_dosimetry
-}
+# .dosimetry <- function(){
+#   options(scipen = 0, digits = 2)
+#   r_data$ggscatterplot_dosimetry
+# }
+
+# plot_inputs <- reactive({
+#   viz_args$dataset <- input$dataset
+#   viz_args$shiny <- input$shiny
+#   vis_args$X <- input$data_xvar
+#   vis_args$Y <- input$data_yvar
+#   vis_args$rangeDate <- input$periodeId
+#   vis_args$split_dosimetry <- input$split_dosimetry
+#   vis_args$Fill <- input$data_fill
+#   vis_args$dosimetry_typePlot <- input$dosimetry_typePlot
+#
+#
+#   viz_args
+# })
 
 observeEvent(input$dosimetry_report, {
   cmd1 <- paste0("```{r fig.width=10.46, fig.height=5.54, dpi =72}\n",
                 paste0("r_data$Bar"),"+",
                 "\n",
-                "theme(axis.text.x=element_text(angle=45, hjust=1))",
+                "theme(axis.text.x=element_text(angle=45, hjust=1),
+                 legend.position = 'right',
+                 legend.direction = 'vertical'
+                 #labs(title = 'Title', fill = 'legendTitle', x= Name ,size= DCE, colour= date, y = DCE)
+                )",
                 "\n```\n"
 
   )
@@ -167,9 +186,56 @@ observeEvent(input$dosimetry_report, {
   cmd2 <- paste0("```{r fig.width=10.46, fig.height=5.54, dpi =72}\n",
                  paste0("r_data$Scatter"),"+",
                  "\n",
-                 "theme(axis.text.x=element_text(angle=45, hjust=1))",
+                 "theme(axis.text.x=element_text(angle=45, hjust=1),
+                 legend.position = 'right',
+                 legend.direction = 'vertical'
+                 #labs(title = 'Title', fill = 'legendTitle', x= Name ,size= DCE, colour= date, y = DCE)
+                 )",
                  "\n```\n"
 
   )
-  update_report_fun(c(cmd1,cmd2))
+
+  cmd3 <- paste0("```{r}\n",
+                 paste0("table <- Upper_threshold(",
+                   "dat= r_data[[input$dataset]],",
+                   "rangeDate= input$periodeId,",
+                   "Y= input$data_yvar)\n"
+                   ),
+                 "library(knitr)\n",
+                 "rownames(table) <- NULL \n",
+                 "kable(table, digits=2)",
+                 "\n```\n"
+                 )
+
+
+  cmd4 <- paste0("```{r, results='asis', echo=FALSE, size='small'}\n",
+                 "library(knitr)\n",
+                 "#lapply(list_mirge, knitr::kable)\n",
+                 "report <- dosi_report(r_data[[input$dataset]], input$periodeId)\n",
+                 "for(i in 1:length(report)){\n",
+                 "next_date <- max(as_ymd(input$periodeId)) + 90 \n",
+                 "title <-paste0('Next Sampling Date: ', next_date)\n",
+                 "print(knitr::kable(report[[i]], row.names= FALSE, caption= title))\n",
+                 "}\n\n",
+                 "grid::grid.newpage()\n",
+                 "\n```\n"
+
+  )
+# CMD <- paste0("```{r}\n dosimetryPlot(",
+#               "df= r_data[['", input$dataset,
+#               "']],\n X =", input$data_xvar,
+#               ",\n Y = ", input$data_yvar,
+#               ",\n rangeDate= ", input$periodeId,
+#               ", \n Split='", input$split_dosimetry,
+#               "',\n Fill=", input$data_fill,
+#               ",\n Type=", input$dosimetry_typePlot,
+#               ",\n ReOrder=", input$data_xvar,
+#               ")\n```"
+#              )
+
+  #update_report_fun(CMD)
+  update_report_fun(cmd1)
+  update_report_fun(cmd2)
+  update_report_fun(cmd3)
+  update_report_fun(cmd4)
 })
