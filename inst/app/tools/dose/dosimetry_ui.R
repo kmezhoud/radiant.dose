@@ -133,7 +133,7 @@ output$dosimetry <- renderUI({
                #h4(paste0(input$data_yvar, " vs ", input$data_xvar),  align = "center"),
                plot_downloader("ld_barplot_dosimetry", width= plot_width_dosimetry(), height=plot_height_dosimetry(), pre = ""),
                plotOutput("barplot_dosimetry", height = 400, width = 1000),
-               #h4(paste0('List of persons with excessive cumulative doses(> ', r_data$thresh,')'), align='center'),
+               h4(paste0('List of persons with excessive cumulative doses(> threshold (mSv) / range date)'), align='center'),
                DT::dataTableOutput("Upper_threshold")
         )
         ),

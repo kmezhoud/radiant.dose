@@ -1,7 +1,7 @@
 #'  plot dosimetry data
 #'
-#' @usage dosimetryPlot(df, X, Y, rangeDate, Split, Fill)
-#' @param df dataframe woth dosimetry data (column with Dates are necessary)
+#' @usage dosimetryPlot(df, X, Y, rangeDate, Split, Fill, Type, ReOrder)
+#' @param df dataframe with dosimetry data (column with Dates are necessary)
 #' @param X x_variable
 #' @param Y y_variable
 #' @param rangeDate date or  date range
@@ -9,6 +9,7 @@
 #' @param Fill fill plots by variable
 #' @param Type plot Type ('Bar', 'Scatter')
 #' @param ReOrder reorder x axis by y (X,reorder(tmp[[input$data_xvar]],tmp[[input$data_yvar]]))
+#'
 #' @return  web page of radiant.dose Shiny App
 #' @examples
 #' \dontrun{
@@ -51,16 +52,22 @@ dosimetryPlot <- function(df,
     tmp <- split(tmp, tmp[[filter]], drop=TRUE)[[Split]]
   }
 
-  # set threshold DCE = 6 mSv/year, DP = 500 mSv/year
-  threshold <- ifelse(Y == "DCE", 6/365 * diff, 500/365 * diff)
+  # set threshold DCE = 6 mSv/year, DP = 500 mSv/year category B
+  threshold_B <- ifelse(Y == 'DCE', 6/365 * diff, 500/365 * diff)
+ #threshold_A <- ifelse(Y == 'DCE', 20/365 * diff, 1500/365 * diff)
 
   plot_dosimetry <-
     ggplot(tmp, aes_string(x = ReOrder, y = Y)) +
 
-    geom_hline(aes(yintercept = threshold),
+    geom_hline(aes(yintercept = threshold_B),
                    #colour="Cat.B"),
                na.rm = TRUE,
                show.legend = FALSE) +
+
+    # geom_hline(aes(yintercept = threshold_A),
+    #            #colour="Cat.A"),
+    #            na.rm = TRUE,
+    #            show.legend = FALSE) +
 
      # geom_hline(aes(yintercept= 20,
      #                colour="Cat. A"),

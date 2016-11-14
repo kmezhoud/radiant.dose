@@ -1,10 +1,10 @@
-#'  plot dosimetry data
+#'  display in table patients with excessive cumulative doses
 #'
-#' @usage dosimetryPlot(df, X, Y, rangeDate, Split, Fill)
-#' @param df dataframe woth dosimetry data (column with Dates are necessary)
-#' @param Type plot Type ('Bar', 'Scatter')
-
-#' @return  web page of radiant.dose Shiny App
+#' @usage Upper_threshold(dat, rangeDate,Y)
+#' @param dat dataframe with dosimetry data (column with Dates are necessary)
+#' @param rangeDate A range of date
+#' @param Y numeric variable (DCE, DP)
+#' @return  table with excessive cumulative doses up to threshold (mSv)
 #' @examples
 #' \dontrun{
 
