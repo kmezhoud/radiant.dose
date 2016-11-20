@@ -4,7 +4,7 @@
 \alias{dosimetryPlot}
 \title{plot dosimetry data}
 \usage{
-dosimetryPlot(df, X, Y, rangeDate, Split, Fill)
+dosimetryPlot(df, X, Y, rangeDate, Split, Fill, Type, ReOrder)
 }
 \arguments{
 \item{df}{dataframe with dosimetry data (column with Dates are necessary)}

@@ -41,6 +41,7 @@ dosimetryPlot <- function(df,
   yLab  <- paste0(input$data_yvar, " (mSv)", sep = " " )
   date_Column <- names(which(sapply(dat, is.Date) ==TRUE))
   ## filter Date range
+
   tmp <- dat[dat[[date_Column]] %in% as_ymd(rangeDate),]
 
   ## split by Department
@@ -91,11 +92,11 @@ dosimetryPlot <- function(df,
     if(Fill =='NA' && Type == 'Scatter'){
       geom_point(aes(colour = NULL, size =  tmp[[as.character(Y)]]), na.rm = TRUE)
     }else if(Fill == 'NA' && Type == 'Bar'){
-      geom_bar(stat="identity")
+      geom_bar(stat="identity", na.rm=TRUE)
     }else if(Fill != 'NA' && Type == 'Scatter' ){
       geom_point(aes(colour = tmp[[as.character(input$data_fill)]], size =  tmp[[as.character(input$data_yvar)]]), na.rm = TRUE)
     } else{
-      geom_bar(stat="identity", aes(fill = tmp[[as.character(Fill)]]))
+      geom_bar(stat="identity", aes(fill = tmp[[as.character(Fill)]]), na.rm=TRUE)
     }
 
   ## bkp ggplot for download

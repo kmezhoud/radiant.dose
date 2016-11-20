@@ -28,11 +28,12 @@ output$barplot_dosimetry <- renderPlot({
 
 
 output$Upper_threshold <- DT::renderDataTable({
+
   if (is.null(input$periodeId)) {
     return(
     as.data.frame("Please select  date range. ")
     )
-  }
+  }else{
   DT::datatable(
 
   caption = HTML(paste0('Cumulative Threshold (mSv/ range date) = ', tags$span(style="color:red",  r_data$thresh))) ,
@@ -40,6 +41,7 @@ output$Upper_threshold <- DT::renderDataTable({
   filter = 'top'
 
   )
+  }
 })
 
 ## load icon for dosimetry scatter plot

@@ -24,12 +24,18 @@ dosi_report <- function(dat, rangeDate){
 
   #head(aggregate(dat[ , c("DCE","DP")], by= list(dat$first.Name, dat$Name, dat$Department) , "list"))
 
-  SUM <- aggregate(dat[ , c("DCE","DP")], by= list(dat$first.Name, dat$Name, dat$Department) , "sum")
+  SUM <- aggregate(dat[ , c("DCE","DP")],
+                   by= list(dat$first.Name, dat$Name, dat$Department) ,
+                   "sum", na.rm=TRUE)
   colnames(SUM) <- c("first.Name", "Name", "Department", "sum.DCE", "sum.DP" )
-  SORT <- as.data.frame(aggregate(dat[ , c("DCE","DP")], by= list(dat$first.Name, dat$Name, dat$Department) , "sort"))
+
+  ## SORT <- aggregate(dat[ , c("DCE","DP")], by= list(dat$first.Name, dat$Name, dat$Department) , "I") by Petr PIKAL
+  SORT <- as.data.frame(aggregate(dat[ , c("DCE","DP")],
+                                  by= list(dat$first.Name, dat$Name, dat$Department) ,
+                                  function(d) { unlist(d)})) # by David Winsemius
   colnames(SORT)[1:3] <- c("first.Name", "Name", "Department")
 
-  ## rm matrix into SORT
+  ## rm matrix from SORT dataframe
   SORT <- do.call(data.frame,SORT)
 
   mirge <- merge(SORT, SUM, by=c('first.Name', 'Name', 'Department'))

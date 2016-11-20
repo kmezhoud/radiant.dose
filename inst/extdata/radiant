@@ -1,3 +1,5 @@
 #!/usr/local/bin/Rscript
 library("radiant.dose")
 radiant.dose()
+
+###C:\Program Files\R\R-3.2.1\bin\Rscript.exe
