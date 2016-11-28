@@ -7,7 +7,7 @@
 #' @return  table with excessive cumulative doses up to threshold (mSv)
 #' @examples
 #' \dontrun{
-
+#'  Upper_threshold(dat, rangeDate,Y)
 #'}
 #' @details See \url{https://radiant.dose.github.io/docs} for documentation and tutorials
 #'

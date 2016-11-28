@@ -21,7 +21,7 @@ dosimetryPlot(df, X, Y, rangeDate, Split, Fill, Type, ReOrder)
 
 \item{Type}{plot Type ('Bar', 'Scatter')}
 
-\item{ReOrder}{reorder x axis by y (X,reorder(tmp[[input$data_xvar]],tmp[[input$data_yvar]]))}
+\item{ReOrder}{reorder x axis by y (X,reorder(tmp[[X]],tmp[[Y]]))}
 }
 \value{
 web page of radiant.dose Shiny App

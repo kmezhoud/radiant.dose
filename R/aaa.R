@@ -1,5 +1,5 @@
 ## to avoid 'no visible binding for global variable' NOTE
-globalVariables(c("r_data","matches"))
+globalVariables(c("r_data","matches", "is.Date", "aggregate","aes_string", "aes", "element_text"))
 
 # to avoid 'no visible binding for global variable' NOTE
  # globalVariables(c(".","rnd_number"))
@@ -33,5 +33,25 @@ NULL
 #' @keywords datasets
 #' @name dosimetry
 #' @usage data(dosimetry)
+#' @format A data frame
+NULL
+
+#' dosimetry_CNSTN
+#'
+#' @details A sample of dosimeter
+#' @docType data
+#' @keywords datasets
+#' @name dosimetry_CNSTN
+#' @usage data(dosimetry_CNSTN)
+#' @format A data frame
+NULL
+
+#' dosimetry_CNRP
+#'
+#' @details A sample of dosimeter
+#' @docType data
+#' @keywords datasets
+#' @name dosimetry_CNRP
+#' @usage data(dosimetry_CNRP)
 #' @format A data frame
 NULL

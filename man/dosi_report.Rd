@@ -4,10 +4,12 @@
 \alias{dosi_report}
 \title{display dosimetry report}
 \usage{
-dosi_report(dat)
+dosi_report(dat, rangeDate)
 }
 \arguments{
 \item{dat}{dataframe with dosimetry data (column with Dates are necessary)}
+
+\item{rangeDate}{A range of date}
 }
 \value{
 individual table with DCE and DP doses and sum (mSv)
@@ -22,6 +24,7 @@ See \url{https://radiant.dose.github.io/docs} for documentation and tutorials
 }
 \examples{
 \dontrun{
+dosi_report(dat, rangeDate)
 }
 }
 

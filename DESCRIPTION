@@ -1,7 +1,7 @@
 Package: radiant.dose
 Title: Medical and Dosimtery data manager
-Version: 0.99.06
-Date: 2016-11-17
+Version: 0.99.08
+Date: 2016-11-28
 Authors@R: person("Karim", "Mezhoud", , "kmezhoud@bioinformatics.tn", c("aut", "cre"))
 Description: Interactive Data Manage and Visualization of Badges and Medical Profiles
 Depends:
@@ -18,11 +18,13 @@ Imports:
     digest,
     shinyjs,
     shinyAce,
-    grid
+    grid,
+    stats,
+    ggplot2
 Suggests:
     testthat (>= 1.0.0),
     covr (>= 1.2.0)
-URL: https://github.com/kmezhoud/radiant.dose, https://radiant.dose.github.io/docs
+URL: https://github.com/kmezhoud/radiant.dose
 BugReports: https://github.com/kmezhoud/radiant.dose/issues
 License: AGPL-3 | file LICENSE
 LazyData: true

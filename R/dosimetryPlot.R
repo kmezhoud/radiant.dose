@@ -8,7 +8,7 @@
 #' @param Split split dataframe by variable
 #' @param Fill fill plots by variable
 #' @param Type plot Type ('Bar', 'Scatter')
-#' @param ReOrder reorder x axis by y (X,reorder(tmp[[input$data_xvar]],tmp[[input$data_yvar]]))
+#' @param ReOrder reorder x axis by y (X,reorder(tmp[[X]],tmp[[Y]]))
 #'
 #' @return  web page of radiant.dose Shiny App
 #' @examples
@@ -38,7 +38,7 @@ dosimetryPlot <- function(df,
   diff <- as.Date(Maxx) - as.Date(Minn)
   ifelse(diff == 0, c(diff <- 90, Minn <- Maxx - 90), diff)
   Title <- paste0( diff, ' Days ', ': from ', Minn , ' to ', Maxx)
-  yLab  <- paste0(input$data_yvar, " (mSv)", sep = " " )
+  yLab  <- paste0(Y, " (mSv)", sep = " " )
   date_Column <- names(which(sapply(dat, is.Date) ==TRUE))
   ## filter Date range
 
@@ -58,9 +58,9 @@ dosimetryPlot <- function(df,
  #threshold_A <- ifelse(Y == 'DCE', 20/365 * diff, 1500/365 * diff)
 
   plot_dosimetry <-
-    ggplot(tmp, aes_string(x = ReOrder, y = Y)) +
+    ggplot2::ggplot(tmp, aes_string(x = ReOrder, y = Y)) +
 
-    geom_hline(aes(yintercept = threshold_B),
+    ggplot2::geom_hline(aes(yintercept = threshold_B),
                    #colour="Cat.B"),
                na.rm = TRUE,
                show.legend = FALSE) +
@@ -75,8 +75,8 @@ dosimetryPlot <- function(df,
      #            na.rm = TRUE,
      #            show.legend = FALSE) +
 
-    labs(title = Title, fill = legendTitle, x= X ,size= Y, colour= Fill, y = yLab) +
-    theme(legend.title = element_text( colour="black",
+    ggplot2::labs(title = Title, fill = legendTitle, x= X ,size= Y, colour= Fill, y = yLab) +
+    ggplot2::theme(legend.title = element_text( colour="black",
                                        size=14,
                                        face="bold"),
           title = element_text( size = 15,
@@ -90,13 +90,13 @@ dosimetryPlot <- function(df,
           legend.direction = "vertical"
     ) +
     if(Fill =='NA' && Type == 'Scatter'){
-      geom_point(aes(colour = NULL, size =  tmp[[as.character(Y)]]), na.rm = TRUE)
+      ggplot2::geom_point(aes(colour = NULL, size =  tmp[[as.character(Y)]]), na.rm = TRUE)
     }else if(Fill == 'NA' && Type == 'Bar'){
-      geom_bar(stat="identity", na.rm=TRUE)
+      ggplot2::geom_bar(stat="identity", na.rm=TRUE)
     }else if(Fill != 'NA' && Type == 'Scatter' ){
-      geom_point(aes(colour = tmp[[as.character(input$data_fill)]], size =  tmp[[as.character(input$data_yvar)]]), na.rm = TRUE)
+      ggplot2::geom_point(aes(colour = tmp[[as.character(Fill)]], size =  tmp[[as.character(Y)]]), na.rm = TRUE)
     } else{
-      geom_bar(stat="identity", aes(fill = tmp[[as.character(Fill)]]), na.rm=TRUE)
+      ggplot2::geom_bar(stat="identity", aes(fill = tmp[[as.character(Fill)]]), na.rm=TRUE)
     }
 
   ## bkp ggplot for download
