@@ -36,19 +36,19 @@ output$ui_edata_vars <- renderUI({
 })
 
 
-output$ui_evars <- renderUI({
-  tagList(
-
-  lapply(1:length(input$edata_vars), function(i) {
-    div(
-     textInput(paste0(input$edata_vars[i],i), label = input$edata_vars[i], "")
-    )
-  }),
-  actionButton("submit_evars", "Submit"),
-  actionButton("reset_evars", "Reset")
-  #actionButton("delete_evars", "Delete")
-  )
-})
+# output$ui_evars <- renderUI({
+#   tagList(
+#
+#   lapply(1:length(input$edata_vars), function(i) {
+#     div(
+#      textInput(paste0(input$edata_vars[i],i), label = input$edata_vars[i], "")
+#     )
+#   }),
+#   actionButton("submit_evars", "Submit"),
+#   actionButton("reset_evars", "Reset")
+#   #actionButton("delete_evars", "Delete")
+#   )
+# })
 
 output$ui_eData <- renderUI({
   tagList(
@@ -56,7 +56,9 @@ output$ui_eData <- renderUI({
     wellPanel(
     #checkboxInput("data_pause", "Pause view", state_init("data_pause", FALSE)),
     uiOutput("ui_edata_vars"),
-    uiOutput("ui_evars")
+    #uiOutput("ui_evars")
+    actionButton("submit_evars", "Submit"),
+    actionButton("reset_evars", "Reset")
 ),
 help_and_report(modal_title = "Edit Data", fun_name = "eData",
                 author = "Karim Mezhoud",
@@ -85,13 +87,16 @@ output$dataEdit <- DT::renderDataTable({
 output$editable <- renderUI({
   tagList(
   wellPanel(
+    # lapply(1:length(input$edata_vars), function(i) {
+    #   div(style="display:inline-block",
+    #       h5("Accuracy table:"),
+    #       textInput(paste0("input",i), paste0('labal1',i),value = 2,width = "80%")
+    #   )}),
     lapply(1:length(input$edata_vars), function(i) {
       div(style="display:inline-block",
-          h5("Accuracy table:"),
-          textInput(paste0("input",i), paste0('labal1',i),value = 2,width = "80%")
-      )}),
-    actionButton("submit", "Submit"),
-    actionButton("reset", "Reset")
+        textInput(paste0(input$edata_vars[i],i), label = input$edata_vars[i], "", width= "60%")
+      )
+    })
   ),
 
   DT::dataTableOutput("dataEdit")

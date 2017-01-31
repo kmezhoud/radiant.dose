@@ -38,4 +38,11 @@ shinyServer(function(input, output, session) {
 
   ## save state on refresh or browser close
   saveStateOnRefresh(session)
+
+  ## close browser when radiant.dose is stopped
+  ## close Rstudio when radiant.dose os stopped
+  # session$onSessionEnded(function() {
+  #    stopApp()
+  #    q("no")
+  # })
 })

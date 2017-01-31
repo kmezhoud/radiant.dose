@@ -1,7 +1,7 @@
 
 ## ui for data menu in radiant
 do.call(navbarPage,
-  c("Radiant.dose",
+  c("radiant.dose",
     getOption("radiant.nav_ui"),
     getOption("Edit.nav_ui"),
     getOption("radiant.shared_ui"),
