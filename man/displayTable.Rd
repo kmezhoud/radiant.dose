@@ -26,4 +26,3 @@ df <-data.frame(1, 1:10, sample(L3, 10, replace = TRUE))
 displayTable(df, sesion)
 }
 }
-

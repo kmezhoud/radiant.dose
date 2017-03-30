@@ -27,4 +27,3 @@ See \url{https://radiant.dose.github.io/docs} for documentation and tutorials
  Upper_threshold(dat, rangeDate,Y)
 }
 }
-
