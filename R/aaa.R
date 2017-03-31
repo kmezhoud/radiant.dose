@@ -55,3 +55,24 @@ NULL
 #' @usage data(dosimetry_CNRP)
 #' @format A data frame
 NULL
+
+
+#' Medical_CNSTN
+#'
+#' @details A sample of Medical essays
+#' @docType data
+#' @keywords datasets
+#' @name Medical_CNSTN
+#' @usage data(Medical_CNSTN)
+#' @format A data frame
+NULL
+
+#' Data
+#'
+#' @details A sample of Medical and dosimetry data
+#' @docType data
+#' @keywords datasets
+#' @name Data
+#' @usage data(Data)
+#' @format A data frame
+NULL

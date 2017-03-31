@@ -1,7 +1,8 @@
 options(Edit.nav_ui =
           tagList(
             tabPanel("Edit", uiOutput("Edit")),
-            tabPanel("Dosimetry", uiOutput("dosimetry"))
+            tabPanel("Dosimetry", uiOutput("dosimetry")),
+            tabPanel("Medical", uiOutput("medical"))
             )
           )
 

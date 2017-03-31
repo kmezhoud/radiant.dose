@@ -1,10 +1,15 @@
 ## date Range exposure
 output$ui_periode_dosimetry <- renderUI({
+
   dat <- r_data[[input$dataset]]
+## remove rows and dates with medical data
+  dat <-dat[is.na(dat$Essay), ]
+
+
   ##check for Date column
   date_Column <- names(which(sapply(dat, is.Date) ==TRUE))
 
-  ls_periode <- unique(r_data[[input$dataset]][[date_Column]])
+  ls_periode <- unique(dat[[date_Column]])
 
   periode <- sapply(ls_periode, function(x) as.character(x)) #as.POSIXlt.date(x,tz= Sys.timezone())
 
