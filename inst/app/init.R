@@ -19,7 +19,7 @@ init_data <- function() {
 
   r_data <- reactiveValues()
 
-  df_name <- getOption("radiant.init.dose", default = "dosimetry")
+  df_name <- getOption("radiant.init.dose", default = "Data")
   if (file.exists(df_name)) {
     df <- load(df_name) %>% get
     df_name <- basename(df_name) %>% {gsub(paste0(".",tools::file_ext(.)),"",., fixed = TRUE)}
