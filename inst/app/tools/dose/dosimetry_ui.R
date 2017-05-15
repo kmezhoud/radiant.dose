@@ -3,7 +3,7 @@ output$ui_periode_dosimetry <- renderUI({
 
   dat <- r_data[[input$dataset]]
 ## remove rows and dates with medical data
-  dat <-dat[is.na(dat$Essay), ]
+  dat <-dat[is.na(dat$Assay), ]
 
 
   ##check for Date column
