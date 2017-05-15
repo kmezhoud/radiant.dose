@@ -119,7 +119,7 @@ output$dosimetry <- renderUI({
       #                        width = "117px"))
       # ),
 
-      help_and_report(modal_title = "dosimetry", fun_name = "dosimetry",
+      help_and_report(modal_title = "Dosimetry", fun_name = "dosimetry",
                       author = "Karim Mezhoud",
                       help_file = inclRmd(file.path(
                         getOption("radiant.path.dose"),"app/tools/help/dosimetry.Rmd")))
