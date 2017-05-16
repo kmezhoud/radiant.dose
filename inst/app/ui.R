@@ -5,6 +5,6 @@ do.call(navbarPage,
     getOption("radiant.nav_ui"),
     getOption("Edit.nav_ui"),
     getOption("radiant.shared_ui"),
-    help_menu("help_data_ui"))
+    help_menu("help_dose_ui"))
 )
 

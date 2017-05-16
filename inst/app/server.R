@@ -7,6 +7,25 @@ shinyServer(function(input, output, session) {
          encoding = getOption("radiant.encoding"), local = TRUE)
   source(file.path(getOption("radiant.path.data"),"app/radiant.R"),
          encoding = getOption("radiant.encoding"), local = TRUE)
+  source("help.R", encoding = getOption("radiant.encoding"), local = TRUE)
+
+  ## help ui
+  output$help_dose_ui <- renderUI({
+    sidebarLayout(
+      sidebarPanel(
+        help_data_panel,
+        help_dose_panel,
+        uiOutput("help_text"),
+        width = 3
+      ),
+
+      mainPanel(
+        HTML(paste0("<h2>Select help files to show and search</h2><hr>")),
+        htmlOutput("help_data"),
+        htmlOutput("help_dose")
+      )
+    )
+  })
 
   ## source data & app tools from radiant.data
   for (file in list.files(c(file.path(getOption("radiant.path.data"),"app/tools/app"),
