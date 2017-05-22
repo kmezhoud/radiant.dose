@@ -1,11 +1,11 @@
 Package: radiant.dose
 Title: Medical and Dosimtery data manager
-Version: 0.99.13
-Date: 2017-05-15
+Version: 0.99.15
+Date: 2017-05-22
 Authors@R: person("Karim", "Mezhoud", , "kmezhoud@bioinformatics.tn", c("aut", "cre"))
 Description: Interactive Data Manage and Visualization of Badges and Medical Profiles
 Depends:
-    R (>= 3.3.0),
+    R (>= 3.2.0),
     radiant.data (>= 0.6),
     mvtnorm
 Imports:
