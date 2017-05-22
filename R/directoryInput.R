@@ -5,12 +5,6 @@
 #' @param default which folder to show initially
 #' @param caption the caption on the selection dialog
 #'
-#' @details
-#' Uses an Apple Script to display a folder selection dialog.  With \code{default = NA},
-#' the initial folder selection is determined by default behavior of the
-#' "choose folder" Apple Script command.  Otherwise, paths are expanded with
-#' \link{path.expand}.
-#'
 #' @return
 #' A length one character vector, character NA if 'Cancel' was selected.
 #'
@@ -73,20 +67,13 @@ if (Sys.info()['sysname'] == 'Darwin') {
 #'
 #' @param inputId The \code{input} slot that will be used to access the value
 #' @param label Display label for the control, or NULL for no label
-#' @param value Initial value.  Paths are exapnded via \code{\link{path.expand}}.
+#' @param value A directory path to set
 #'
-#' @details
-#' This widget relies on \link{\code{choose.dir}} to present an interactive
-#' dialog to users for selecting a directory on the local filesystem.  Therefore,
-#' this widget is intended for shiny apps that are run locally - i.e. on the
-#' same system that files/directories are to be accessed - and not from hosted
-#' applications (e.g. from shinyapps.io).
+#' @usage directoryInput(inputId, label, value)
 #'
 #' @return
 #' A directory input control that can be added to a UI definition.
 #'
-#' @seealso
-#' \link{updateDirectoryInput}, \link{readDirectoryInput}, \link[utils]{choose.dir}
 directoryInput = function(inputId, label, value = NULL) {
   if (!is.null(value) && !is.na(value)) {
     value = path.expand(value)
@@ -139,8 +126,8 @@ directoryInput = function(inputId, label, value = NULL) {
 #' @param session The \code{session} object passed to function given to \code{shinyServer}.
 #' @param inputId The id of the input object.
 #' @param value A directory path to set
-#' @param ... Additional arguments passed to \link{\code{choose.dir}}.  Only used
-#'    if \code{value} is \code{NULL}.
+#'
+#' @usage updateDirectoryInput(session, inputId, value)
 #'
 #' @details
 #' Sends a message to the client, telling it to change the value of the input
@@ -148,9 +135,9 @@ directoryInput = function(inputId, label, value = NULL) {
 #' in the text-field and triggers a client-side change event.  A directory
 #' selection dialog is not displayed.
 #'
-updateDirectoryInput = function(session, inputId, value = NULL, ...) {
+updateDirectoryInput = function(session, inputId, value = NULL) {
   if (is.null(value)) {
-    value = choose.dir(...)
+    value = choose.dir('~')
   }
   session$sendInputMessage(inputId, list(chosen_dir = value))
 }

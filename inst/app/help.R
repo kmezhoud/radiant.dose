@@ -1,4 +1,5 @@
 help_dose <- c("Edit" = "eData.Rmd", "Dosimetry" = "dosimetry.Rmd", "Medical" = "medical.Rmd")
+
 output$help_dose <- reactive(append_help("help_dose", file.path(getOption("radiant.path.dose"),"app/tools/help"), Rmd = TRUE))
 
 observeEvent(input$help_dose_all, {help_switch(input$help_dose_all, "help_dose")})
