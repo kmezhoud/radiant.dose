@@ -22,9 +22,8 @@ summary(cars)
 ## Including Plots
 
 You can also embed plots, for example:
+<p align="center"><img src="figures/dosimetry.png"></p>
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
+![Reactome Network](figures/dosimetry.png)
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
