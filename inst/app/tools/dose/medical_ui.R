@@ -12,7 +12,6 @@ output$ui_which_dataset_med <- renderUI({
   h4(paste0("Dataset: ", input$dataset), align="left", style = "color:blue")
 })
 
-
 ## date Range exposure
 output$ui_periode_Medical <- renderUI({
 
@@ -50,7 +49,6 @@ output$ui_split_Medical <- renderUI({
 })
 
 
-
 output$ui_name_Medical <- renderUI({
 
   dat <- r_data[[input$dataset]]
@@ -72,8 +70,6 @@ output$ui_name_Medical <- renderUI({
   )
 
 })
-
-
 
 
 display_Medical_report <- function(){
@@ -104,7 +100,6 @@ output$ui_Medical_reports <- renderUI({
 
 
 ## render multiple Image using lapply
-
 lapply(1:6, function(i){
   output[[paste0('display_image',i)]] <- renderImage({
 
@@ -112,11 +107,11 @@ lapply(1:6, function(i){
 
     ## without selecting report files
     #image_file <- paste(paste0(readDirectoryInput(session, 'directory'), input$periodeId_Med, sep=""),
-     #                   "/", display_Medical_report()[i] ,sep="")
+    #                   "/", display_Medical_report()[i] ,sep="")
 
     ##  with selecting report file input$reports_Med from sidebar menu
     image_file <- paste(paste0(readDirectoryInput(session, 'directory'), input$periodeId_Med, sep=""),
-                                           "/", input$reports_Med[i] ,sep="")
+                        "/", input$reports_Med[i] ,sep="")
 
 
     return(list(
@@ -148,17 +143,17 @@ output$medical <- renderUI({
         h5(paste0("Check box to view medical report"), align="left", style = "color:red"),
 
 
-          div(class="row",
-              div(class="col-xs-4",
-        tagList(
-        checkboxInput("view_MedReportID", label="")
-        )
-        ),
-        div(class="col-xs-5",
-        tagList(
-        icon = icon("arrow-left")
-        )
-        )
+        div(class="row",
+            div(class="col-xs-4",
+                tagList(
+                  checkboxInput("view_MedReportID", label="")
+                )
+            ),
+            div(class="col-xs-5",
+                tagList(
+                  icon = icon("arrow-left")
+                )
+            )
         )
 
         #actionButton("view_MedReportID", "Check box to view medical report",   icon=icon("arrow-right"))
@@ -192,36 +187,36 @@ output$medical <- renderUI({
     #####  Main Page ###
     mainPanel(
       tabsetPanel(
-   tabPanel("Image",
-      tagList(
+        tabPanel("Image",
+                 tagList(
 
-      # tags$h5('Files path'),
-       # dataTableOutput('filesPath'),
-       # textOutput('directory'),
+                   # tags$h5('Files path'),
+                   # dataTableOutput('filesPath'),
+                   # textOutput('directory'),
 
-        conditionalPanel("input.view_MedReportID==true",
-                         lapply(1:6, function(i){
+                   conditionalPanel("input.view_MedReportID==true",
+                                    lapply(1:6, function(i){
 
-                           div(style="display:inline-block",
-                               tags$a(imageOutput(paste0("display_image",i),
-                                                  width= 330), # input$zoom_MedicalReport
-                                      href="https://www.google.com" )
-                               #helpText( a("Click Here for the Source Code on Github!",
-                               #           href="https://github.com/Bohdan-Khomtchouk/Microscope",target="_blank"))
-                           )
-                         })
-        )
-        ,
+                                      div(style="display:inline-block",
+                                          tags$a(imageOutput(paste0("display_image",i),
+                                                             width= 330), # input$zoom_MedicalReport
+                                                 href="https://www.google.com" )
+                                          #helpText( a("Click Here for the Source Code on Github!",
+                                          #           href="https://github.com/Bohdan-Khomtchouk/Microscope",target="_blank"))
+                                      )
+                                    })
+                   )
+                   ,
 
-        #### begin display image from file
-        #tableOutput('files'),
-        uiOutput('images')
-        #### end display image from file
+                   #### begin display image from file
+                   #tableOutput('files'),
+                   uiOutput('images')
+                   #### end display image from file
 
 
-      )
-   ),
-   tabPanel("Numeric")
+                 )
+        ),
+        tabPanel("Numeric")
       )
     )
   )

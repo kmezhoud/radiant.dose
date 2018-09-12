@@ -86,29 +86,29 @@ output$scatterplot_dosimetry <- renderPlot({
 #   ggplot(df_Sum, aes_string(x = 'Name', y = input$data_yvar)) + geom_bar(stat="identity",aes(fill = Name))
 # })
 
-output$plot_dosimetryBis <- renderPlot({
-  dat <-  r_data[[input$dataset]]
-  tmp <- dat[dat$Date %in% as_ymd(input$periodeId),]
-  ggplot(tmp, aes_string(x = 'Name', y = input$data_yvar)) + geom_bar(stat="identity",aes(fill = Date), na.rm = TRUE) #+ geom_jitter()
-})
-
-
-
-output$plot_Department_Name <- renderPlot({
-  dat <-  r_data[[input$dataset]]
-  tmp <- dat[dat$Date %in% as_ymd(input$periodeId),]
-  ggplot(tmp, aes_string(x = 'Department', y = input$data_yvar)) + geom_bar(stat="identity",aes(fill = Name))
-})
-
-output$plot_Department_Date <- renderPlot({
-  dat <-  r_data[[input$dataset]]
-  tmp <- dat[dat$Date %in% as_ymd(input$periodeId),]
-  ggplot(tmp, aes_string(x = 'Department', y = input$data_yvar)) + geom_bar(stat="identity",aes(fill = Date))
-})
-
-output$plot_dosimetry2 <- renderPlot({
-  ggplot(r_data[[input$dataset]], aes_string(x = input$data_xvar, y = 'DP')) + geom_point(aes(colour = Name), na.rm = TRUE) #+ geom_jitter()
-})
+# output$plot_dosimetryBis <- renderPlot({
+#   dat <-  r_data[[input$dataset]]
+#   tmp <- dat[dat$Date %in% as_ymd(input$periodeId),]
+#   ggplot(tmp, aes_string(x = 'Name', y = input$data_yvar)) + geom_bar(stat="identity",aes(fill = Date), na.rm = TRUE) #+ geom_jitter()
+# })
+#
+#
+#
+# output$plot_Department_Name <- renderPlot({
+#   dat <-  r_data[[input$dataset]]
+#   tmp <- dat[dat$Date %in% as_ymd(input$periodeId),]
+#   ggplot(tmp, aes_string(x = 'Department', y = input$data_yvar)) + geom_bar(stat="identity",aes(fill = Name))
+# })
+#
+# output$plot_Department_Date <- renderPlot({
+#   dat <-  r_data[[input$dataset]]
+#   tmp <- dat[dat$Date %in% as_ymd(input$periodeId),]
+#   ggplot(tmp, aes_string(x = 'Department', y = input$data_yvar)) + geom_bar(stat="identity",aes(fill = Date))
+# })
+#
+# output$plot_dosimetry2 <- renderPlot({
+#   ggplot(r_data[[input$dataset]], aes_string(x = input$data_xvar, y = 'DP')) + geom_point(aes(colour = Name), na.rm = TRUE) #+ geom_jitter()
+# })
 # output$click_info <- renderPrint({
 #   # Because it's a ggplot2, we don't need to supply xvar or yvar; if this
 #   # were a base graphics plot, we'd need those.

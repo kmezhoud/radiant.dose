@@ -3,10 +3,11 @@ options(radiant.path.data = system.file(package = "radiant.data"))
 source(file.path(getOption("radiant.path.data"), "app/global.R"),
        encoding = getOption("radiant.encoding", default = "UTF-8"), local = TRUE)
 
+
 ## option to change theme
 options(radiant.nav_ui =
-        list(windowTitle = "" ,theme= shinythemes::shinytheme("cerulean") , id = "nav_radiant",
-            inverse = TRUE, collapsible = TRUE, tabPanel("Processing", withMathJax(), uiOutput("ui_data"))))
+        list(windowTitle = "radiant.dose" ,theme= shinythemes::shinytheme("cerulean") , id = "nav_radiant",
+            inverse = TRUE, collapsible = TRUE, tabPanel("Data", withMathJax(), uiOutput("ui_data"))))
 
 
 
@@ -36,6 +37,9 @@ help_menu <- function(hlp) {
   )
 }
 
+## copy-right text
+options(radiant.help.cc = "&copy; Karim Mezhoud (2017) <a rel='license' href='http://creativecommons.org/licenses/by-nc-sa/4.0/'
+        target='_blank'><img alt='Creative Commons License' style='border-width:0' src ='imgs/80x15.png' /></a></br>")
 
 
 ## set path for package

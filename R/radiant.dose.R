@@ -139,10 +139,10 @@ mac_launcher <- function() {
 #'
 #' @examples
 #' \dontrun{
-#' radiant.dose::lin_launcher()
+#' radiant.dose::linux_launcher()
 #' }
 #'
-lin_launcher <- function() {
+linux_launcher <- function() {
 
   if (!interactive()) stop("This function can only be used in an interactive R session")
 
@@ -181,7 +181,7 @@ lin_launcher <- function() {
 #'
 #' @seealso \code{\link{win_launcher}} to create a shortcut on Windows
 #' @seealso \code{\link{mac_launcher}} to create a shortcut on Mac
-#' @seealso \code{\link{lin_launcher}} to create a shortcut on Linux
+#' @seealso \code{\link{linux_launcher}} to create a shortcut on Linux
 #'
 #'
 #' @examples
@@ -197,7 +197,7 @@ launcher <- function() {
   else if (os == "Windows")
     win_launcher()
   else if (os == "Linux")
-    lin_launcher()
+    linux_launcher()
   else
     return(message("This function is not available for your platform."))
 }

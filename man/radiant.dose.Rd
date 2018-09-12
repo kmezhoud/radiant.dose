@@ -4,7 +4,6 @@
 \name{radiant.dose}
 \alias{radiant.dose}
 \alias{radiant.dose-package}
-\alias{radiant.dose}
 \title{radiant.dose}
 \usage{
 radiant.dose(navPanel.Edit=FALSE)

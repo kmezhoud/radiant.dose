@@ -1,7 +1,7 @@
-Package: radiant.dose
+Package: radiant_dose
 Title: Medical and Dosimtery data manager
-Version: 0.99.16
-Date: 2017-07-10
+Version: 0.99.17
+Date: 2017-10-20
 Authors@R: person("Karim", "Mezhoud", , "kmezhoud@bioinformatics.tn", c("aut", "cre"))
 Description: Interactive Data Manage and Visualization of Badges and Medical Profiles
 Depends:
@@ -30,4 +30,4 @@ URL: https://github.com/kmezhoud/radiant.dose
 BugReports: https://github.com/kmezhoud/radiant.dose/issues
 License: AGPL-3 | file LICENSE
 LazyData: true
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.0

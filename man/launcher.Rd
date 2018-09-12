@@ -22,5 +22,5 @@ radiant.dose::launcher()
 
 \code{\link{mac_launcher}} to create a shortcut on Mac
 
-\code{\link{lin_launcher}} to create a shortcut on Linux
+\code{\link{linux_launcher}} to create a shortcut on Linux
 }

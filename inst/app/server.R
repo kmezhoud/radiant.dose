@@ -7,8 +7,9 @@ shinyServer(function(input, output, session) {
          encoding = getOption("radiant.encoding"), local = TRUE)
   source(file.path(getOption("radiant.path.data"),"app/radiant.R"),
          encoding = getOption("radiant.encoding"), local = TRUE)
-  source("help.R", encoding = getOption("radiant.encoding"), local = TRUE)
 
+
+  source("help.R", encoding = getOption("radiant.encoding"), local = TRUE)
   ## help ui
   output$help_dose_ui <- renderUI({
     sidebarLayout(
