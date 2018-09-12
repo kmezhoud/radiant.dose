@@ -26,6 +26,7 @@ shinyServer(function(input, output, session) {
         htmlOutput("help_dose")
       )
     )
+
   })
 
   ## source data & app tools from radiant.data

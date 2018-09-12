@@ -1,8 +1,8 @@
-Package: radiant_dose
+Package: radiant.dose
 Title: Medical and Dosimtery data manager
-Version: 0.99.17
-Date: 2017-10-20
-Authors@R: person("Karim", "Mezhoud", , "kmezhoud@bioinformatics.tn", c("aut", "cre"))
+Version: 0.99.18
+Date: 2018-09-12
+Authors@R: person("Karim", "Mezhoud", , "kmezhoud@gmail.com", c("aut", "cre"))
 Description: Interactive Data Manage and Visualization of Badges and Medical Profiles
 Depends:
     R (>= 3.2.0),
@@ -25,7 +25,10 @@ Imports:
     reshape2
 Suggests:
     testthat (>= 1.0.0),
-    covr (>= 1.2.0)
+    covr (>= 1.2.0),
+    knitr
+VignetteBuilder: 
+    knitr
 URL: https://github.com/kmezhoud/radiant.dose
 BugReports: https://github.com/kmezhoud/radiant.dose/issues
 License: AGPL-3 | file LICENSE

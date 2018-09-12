@@ -3,12 +3,10 @@ options(radiant.path.data = system.file(package = "radiant.data"))
 source(file.path(getOption("radiant.path.data"), "app/global.R"),
        encoding = getOption("radiant.encoding", default = "UTF-8"), local = TRUE)
 
-
 ## option to change theme
 options(radiant.nav_ui =
         list(windowTitle = "radiant.dose" ,theme= shinythemes::shinytheme("cerulean") , id = "nav_radiant",
             inverse = TRUE, collapsible = TRUE, tabPanel("Data", withMathJax(), uiOutput("ui_data"))))
-
 
 
 ## change help menu function
@@ -49,6 +47,10 @@ ifelse (grepl("radiant.dose", getwd()) && file.exists("../../inst") , "..",
 
 ## loading urls and ui
 source("init.R", encoding = getOption("radiant.encoding"), local = TRUE)
+
+## loading functions no longer used by radiant.data
+source(file.path(getOption("radiant.path.dose"), "app/radiant_old.R"),
+       encoding = getOption("radiant.encoding"), local = TRUE)
 
 # word to login for this session
 #Edit_pass <- "foo"

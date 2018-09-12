@@ -38,13 +38,13 @@ output$ui_data_yvar <- renderUI({
   req('scatter')
   vars <- varying_vars()
   ## avoid factor and Date un y-axis
-  vars <- vars["date" != .getclass()[vars]]
+  vars <- vars["date" != .get_class()[vars]]
   if ('scatter' %in% c("line","bar","scatter","surface", "box")) {
-    vars <- vars["character" != .getclass()[vars]]
+    vars <- vars["character" != .get_class()[vars]]
   }
   if ('scatter' %in% c("line","scatter","box")) {
     ## allow factors in yvars for bar plots
-    vars <- vars["factor" != .getclass()[vars]]
+    vars <- vars["factor" != .get_class()[vars]]
   }
 
   selectInput(inputId = "data_yvar", label = "Y-variable:",
@@ -71,7 +71,7 @@ output$ui_fill <- renderUI({
 
   vars <- c(`None` = 'None', varying_vars())
   ## omit numeric vars
-  vars <- vars["numeric" != .getclass()[vars]]
+  vars <- vars["numeric" != .get_class()[vars]]
 
   selectInput(inputId = "data_fill", label = "Fill variable by:", choices = vars,
               selected = state_multiple("data_fill", input$data_fill),
@@ -91,7 +91,6 @@ output$ui_typePlot <- renderUI({
 
 
 output$dosimetry <- renderUI({
-
   sidebarLayout(
 
     #####  Sidebar Panels ###
@@ -136,7 +135,8 @@ output$dosimetry <- renderUI({
         conditionalPanel("input.dosimetry_typePlot == 'Bar'",
         column(width = 12,
                #h4(paste0(input$data_yvar, " vs ", input$data_xvar),  align = "center"),
-               plot_downloader("ld_barplot_dosimetry", width= plot_width_dosimetry(), height=plot_height_dosimetry(), pre = ""),
+               #plot_downloader("ld_barplot_dosimetry", width= plot_width_dosimetry(), height=plot_height_dosimetry(), pre = ""),
+               #download_link(ld_barplot_dosimetry),
                plotOutput("barplot_dosimetry", height = 400, width = 1000),
                h4(paste0('List of persons with excessive cumulative doses(> threshold (mSv) / range date)'), align='center'),
                DT::dataTableOutput("Upper_threshold")
@@ -146,7 +146,8 @@ output$dosimetry <- renderUI({
         column(width = 6,
 
                #h4(' Scatter plot', align= 'center'),
-               plot_downloader("ld_scatterplot_dosimetry", width= plot_width_dosimetry(), height=plot_height_dosimetry(), pre = ""),
+               #plot_downloader("ld_scatterplot_dosimetry", width= plot_width_dosimetry(), height=plot_height_dosimetry(), pre = ""),
+               #download_link("d_scatterplot_dosimetry"),
                plotOutput("scatterplot_dosimetry", height = 400, width = 1000,
                           # Equivalent to: click = clickOpts(id = "plot_dosimetry_click")
                           click = "plot_dosimetry_click",

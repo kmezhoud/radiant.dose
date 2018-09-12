@@ -1,3 +1,10 @@
+CHANGES IN VERSION 0.99.18 (12 September 2018)
+------------------------
++ introduce r_info in init_data() function
++ .getclass() to .get_class()
++ set style.css
+
 CHANGES IN VERSION 0.99.17 (12 September 2018)
 ------------------------
 + commit launcher function
+
